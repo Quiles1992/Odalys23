@@ -25,6 +25,9 @@ function openGift() {
         // Start confetti burst
         launchConfetti();
         
+        // Start background music
+        startMusic();
+        
         // Create background particles
         createParticles();
         
@@ -218,7 +221,7 @@ surpriseBtn.addEventListener('click', () => {
     surpriseUsed = true;
     
     surpriseBtn.innerHTML = '<span>🥳 ¡Te amo mucho! 🥳</span>';
-    surpriseBtn.style.background = 'linear-gradient(135deg, #06b6d4, #8b5cf6, #e91e8c)';
+    surpriseBtn.style.background = '#8b5cf6';
     
     // Mega confetti burst from multiple points
     const points = [
@@ -322,15 +325,84 @@ function showFloatingMessage() {
 }
 
 // ============================================
-// MUSIC TOGGLE (Visual only - no actual audio)
+// MUSIC - YouTube IFrame API
 // ============================================
-const musicToggle = document.getElementById('musicToggle');
+let ytPlayer = null;
+let ytReady = false;
+let ytApiLoaded = false;
+let musicStarted = false;
 let isPlaying = false;
+const musicToggle = document.getElementById('musicToggle');
+
+// Load YouTube IFrame API dynamically
+(function loadYouTubeAPI() {
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.body.appendChild(tag);
+})();
+
+// YouTube API calls this globally when ready
+window.onYouTubeIframeAPIReady = function() {
+    ytPlayer = new YT.Player('yt-player', {
+        height: '1',
+        width: '1',
+        videoId: 'G0R2lO6_P5Q',
+        playerVars: {
+            autoplay: 0,
+            loop: 1,
+            playlist: 'G0R2lO6_P5Q',
+            controls: 0,
+            showinfo: 0,
+            modestbranding: 1,
+            rel: 0,
+            origin: window.location.origin
+        },
+        events: {
+            onReady: function() {
+                ytReady = true;
+                ytPlayer.setVolume(80);
+                // If gift was already opened before API loaded, play now
+                if (musicStarted && !isPlaying) {
+                    ytPlayer.playVideo();
+                    isPlaying = true;
+                    musicToggle.classList.add('playing');
+                    musicToggle.textContent = '🎶';
+                }
+            },
+            onError: function(e) {
+                console.log('YT error:', e.data);
+            }
+        }
+    });
+};
+
+function startMusic() {
+    if (musicStarted) return;
+    musicStarted = true;
+
+    if (ytReady && ytPlayer) {
+        ytPlayer.playVideo();
+        isPlaying = true;
+        musicToggle.classList.add('playing');
+        musicToggle.textContent = '🎶';
+    }
+    // If not ready yet, the onReady callback above will start playback
+}
 
 musicToggle.addEventListener('click', () => {
-    isPlaying = !isPlaying;
-    musicToggle.classList.toggle('playing', isPlaying);
-    musicToggle.textContent = isPlaying ? '🎶' : '🎵';
+    if (!ytReady || !ytPlayer) return;
+
+    if (isPlaying) {
+        ytPlayer.pauseVideo();
+        isPlaying = false;
+        musicToggle.classList.remove('playing');
+        musicToggle.textContent = '🎵';
+    } else {
+        ytPlayer.playVideo();
+        isPlaying = true;
+        musicToggle.classList.add('playing');
+        musicToggle.textContent = '🎶';
+    }
 });
 
 // ============================================

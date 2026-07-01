@@ -976,3 +976,91 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* ============================================
+   PHOTO MODAL OVERLAY
+   ============================================ */
+.photo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 0, 20, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: overlay-fade-in 0.6s ease forwards;
+    cursor: pointer;
+}
+
+.photo-overlay-content {
+    text-align: center;
+    animation: photo-zoom-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transform: scale(0);
+}
+
+.photo-overlay img {
+    max-width: 85vw;
+    max-height: 65vh;
+    border-radius: 20px;
+    border: 3px solid #e91e8c;
+    box-shadow: 0 0 60px rgba(233, 30, 140, 0.5),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+}
+
+.photo-overlay-caption {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: #e91e8c;
+    text-shadow: 0 0 20px rgba(233, 30, 140, 0.5);
+    margin-top: 25px;
+    animation: photo-caption-in 0.8s ease 0.4s both;
+}
+
+.photo-overlay-hint {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 15px;
+    animation: photo-caption-in 0.8s ease 0.8s both;
+}
+
+@keyframes overlay-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes photo-zoom-in {
+    from { transform: scale(0) rotate(-5deg); }
+    to { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes photo-caption-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.photo-overlay.closing {
+    animation: overlay-fade-out 0.5s ease forwards;
+}
+
+.photo-overlay.closing .photo-overlay-content {
+    animation: photo-zoom-out 0.4s ease forwards;
+}
+
+@keyframes overlay-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes photo-zoom-out {
+    from { transform: scale(1); }
+    to { transform: scale(0.8); opacity: 0; }
+}

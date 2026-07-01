@@ -252,7 +252,31 @@ surpriseBtn.addEventListener('click', () => {
     
     // Show big floating message
     showFloatingMessage();
+
+    // Show the photo after a brief delay for dramatic effect
+    setTimeout(() => {
+        showPhotoOverlay();
+    }, 1500);
 });
+
+function showPhotoOverlay() {
+    const overlay = document.createElement('div');
+    overlay.classList.add('photo-overlay');
+    overlay.innerHTML = `
+        <div class="photo-overlay-content">
+            <img src="img.jpeg" alt="Odalys">
+            <p class="photo-overlay-caption">💖 Te amo, Odalys 💖</p>
+            <p class="photo-overlay-hint">Toca para cerrar</p>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', () => {
+        overlay.classList.add('closing');
+        setTimeout(() => overlay.remove(), 500);
+    });
+}
 
 function createEmojiExplosion() {
     const emojis = ['🎂', '🎉', '🎊', '🥳', '💖', '🌟', '✨', '🎁', '🎈', '🦋', '🌸', '💕', '🩷', '💗', '🎆', '🎇'];

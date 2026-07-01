@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Odalys! 🎂✨</title>
+    <meta name="description" content="Una sorpresa especial de cumpleaños número 23 para Odalys">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de inicio interactiva -->
+    <div id="intro-screen">
+        <div class="intro-content">
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid">
+                    <div class="gift-bow"></div>
+                </div>
+                <div class="gift-body">
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                </div>
+            </div>
+            <p class="intro-text">Toca el regalo para abrir tu sorpresa ✨</p>
+        </div>
+        <div class="floating-hearts-intro">
+            <span>💕</span><span>🩷</span><span>💖</span><span>🌸</span><span>✨</span>
+            <span>💗</span><span>🩵</span><span>💜</span><span>🌺</span><span>⭐</span>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main-content" class="hidden">
+        <!-- Canvas para confeti -->
+        <canvas id="confetti-canvas"></canvas>
+
+        <!-- Partículas flotantes de fondo -->
+        <div id="particles"></div>
+
+        <!-- Sección Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-content">
+                <div class="age-badge animate-on-scroll">
+                    <span class="age-number">23</span>
+                    <span class="age-text">años</span>
+                </div>
+                <h1 class="hero-title animate-on-scroll">
+                    <span class="title-line">¡Feliz</span>
+                    <span class="title-line accent">Cumpleaños!</span>
+                </h1>
+                <p class="hero-subtitle animate-on-scroll">Hoy es un día muy especial porque celebramos tu vida, Odalys 🌟</p>
+                <div class="scroll-indicator animate-on-scroll">
+                    <span>Desliza hacia abajo</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de mensaje personal -->
+        <section class="message-section" id="message">
+            <div class="container">
+                <div class="message-card animate-on-scroll">
+                    <div class="card-decoration top-left">✦</div>
+                    <div class="card-decoration top-right">✦</div>
+                    <div class="card-decoration bottom-left">✦</div>
+                    <div class="card-decoration bottom-right">✦</div>
+                    <div class="message-icon">💌</div>
+                    <h2 class="message-title">Para ti Odalys, con todo mi corazón</h2>
+                    <div class="message-divider">
+                        <span>♡</span>
+                    </div>
+                    <p class="message-text">
+                        Odalys, hoy cumples 23 años y quiero que sepas lo increíblemente especial que eres. 
+                        Cada día a tu lado es una aventura maravillosa, y no puedo imaginar mi vida sin tu sonrisa, 
+                        tu risa y esa luz que irradias a donde sea que vas.
+                    </p>
+                    <p class="message-text">
+                        Eres la persona más hermosa que conozco, por dentro y por fuera. 
+                        Gracias por ser tú, por existir y por estar en mi vida. 
+                        Mereces todo lo bueno del mundo y más. 🌹
+                    </p>
+                    <p class="message-signature">Con todo mi amor ❤️</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de razones -->
+        <section class="reasons-section" id="reasons">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="title-emoji">💖</span>
+                    23 razones por las que Odalys es increíble
+                    <span class="title-emoji">💖</span>
+                </h2>
+                <div class="reasons-grid">
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.05s">
+                        <span class="reason-number">01</span>
+                        <p>Tu sonrisa ilumina todo</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.1s">
+                        <span class="reason-number">02</span>
+                        <p>Tu risa es contagiosa</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.15s">
+                        <span class="reason-number">03</span>
+                        <p>Eres increíblemente fuerte</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.2s">
+                        <span class="reason-number">04</span>
+                        <p>Tu corazón es enorme</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.25s">
+                        <span class="reason-number">05</span>
+                        <p>Eres súper inteligente</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.3s">
+                        <span class="reason-number">06</span>
+                        <p>Tu creatividad no tiene límites</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.35s">
+                        <span class="reason-number">07</span>
+                        <p>Eres la más cariñosa</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.4s">
+                        <span class="reason-number">08</span>
+                        <p>Tu mirada me enamora</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.45s">
+                        <span class="reason-number">09</span>
+                        <p>Eres mi paz y mi locura</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.5s">
+                        <span class="reason-number">10</span>
+                        <p>Tu bondad inspira a todos</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.55s">
+                        <span class="reason-number">11</span>
+                        <p>Eres la mejor compañera</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.6s">
+                        <span class="reason-number">12</span>
+                        <p>Tu voz es mi canción favorita</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.65s">
+                        <span class="reason-number">13</span>
+                        <p>Siempre sabes qué decir</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.7s">
+                        <span class="reason-number">14</span>
+                        <p>Tu abrazo cura todo</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.75s">
+                        <span class="reason-number">15</span>
+                        <p>Eres hermosa sin esfuerzo</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.8s">
+                        <span class="reason-number">16</span>
+                        <p>Tu determinación me inspira</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.85s">
+                        <span class="reason-number">17</span>
+                        <p>Eres mi persona favorita</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.9s">
+                        <span class="reason-number">18</span>
+                        <p>Tu paciencia es admirable</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 0.95s">
+                        <span class="reason-number">19</span>
+                        <p>Haces todo más divertido</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 1.0s">
+                        <span class="reason-number">20</span>
+                        <p>Eres única en el mundo</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 1.05s">
+                        <span class="reason-number">21</span>
+                        <p>Tu energía es contagiosa</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 1.1s">
+                        <span class="reason-number">22</span>
+                        <p>Me haces mejor persona</p>
+                    </div>
+                    <div class="reason-card animate-on-scroll" style="--delay: 1.15s">
+                        <span class="reason-number">23</span>
+                        <p>Porque te amo con todo mi ser 💕</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de deseos -->
+        <section class="wishes-section" id="wishes">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    <span class="title-emoji">🎂</span>
+                    Mis deseos para ti
+                    <span class="title-emoji">🎂</span>
+                </h2>
+                <div class="wishes-timeline">
+                    <div class="wish-item animate-on-scroll" style="--delay: 0.1s">
+                        <div class="wish-icon">🌟</div>
+                        <div class="wish-content">
+                            <h3>Felicidad infinita</h3>
+                            <p>Que cada día te traiga más sonrisas que el anterior y que la felicidad te persiga a donde vayas.</p>
+                        </div>
+                    </div>
+                    <div class="wish-item animate-on-scroll" style="--delay: 0.2s">
+                        <div class="wish-icon">🦋</div>
+                        <div class="wish-content">
+                            <h3>Aventuras increíbles</h3>
+                            <p>Que este nuevo año esté lleno de viajes, experiencias y momentos que atesores por siempre.</p>
+                        </div>
+                    </div>
+                    <div class="wish-item animate-on-scroll" style="--delay: 0.3s">
+                        <div class="wish-icon">💪</div>
+                        <div class="wish-content">
+                            <h3>Éxito en todo</h3>
+                            <p>Que logres cada meta que te propongas y que el éxito sea tu compañero constante.</p>
+                        </div>
+                    </div>
+                    <div class="wish-item animate-on-scroll" style="--delay: 0.4s">
+                        <div class="wish-icon">💖</div>
+                        <div class="wish-content">
+                            <h3>Amor sin límites</h3>
+                            <p>Que nunca te falte amor y que siempre sepas lo importante que eres para mí y para todos.</p>
+                        </div>
+                    </div>
+                    <div class="wish-item animate-on-scroll" style="--delay: 0.5s">
+                        <div class="wish-icon">🌈</div>
+                        <div class="wish-content">
+                            <h3>Salud y bienestar</h3>
+                            <p>Que tengas la mejor salud y la energía para disfrutar cada momento de esta hermosa vida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección final -->
+        <section class="finale-section" id="finale">
+            <div class="container">
+                <div class="finale-content animate-on-scroll">
+                    <div class="finale-hearts">
+                        <span>💕</span><span>💖</span><span>💗</span><span>💝</span><span>💕</span>
+                    </div>
+                    <h2 class="finale-title">¡Felices 23, Odalys!</h2>
+                    <p class="finale-text">
+                        Que este nuevo año de vida esté lleno de todo lo que mereces y más.
+                        Siempre estaré aquí para ti. Te amo hoy y siempre. 💕
+                    </p>
+                    <button class="surprise-btn" id="surpriseBtn">
+                        <span>🎆 Toca para una última sorpresa 🎆</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio control flotante -->
+        <button class="music-toggle" id="musicToggle" title="Música">
+            🎵
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
